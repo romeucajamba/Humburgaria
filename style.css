@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;200&family=Poppins:ital,wght@0,300;0,400;1,400;1,700&family=Roboto+Serif:ital,opsz,wght@0,8..144,400;0,8..144,500;0,8..144,900;1,8..144,400;1,8..144,700&display=swap');
+/**Formatação de  todo HTML*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+/*Com o root nós conseguimos criar as variaveis e usar elas no nosso código*/
+:root{
+    --red: #d63a25;
+    --white: #fff;
+    --dark: #1e1c2a;
+}
+/*Com o var nós conseguimos criar as nossas varíaveis*/
+/*Estilo ou formatação do nosso body*/
+body{
+    color: var(--dark); 
+    background: var(--white);
+}
+/*Nosso Menu*/
+.navigation{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 40px;
+    box-shadow: 0 0.5rem 0.9rem #ccc;
+    width: 100%;
+    background: var(--white);
+    transition: all 0.5s;
+    position: fixed;/*Mant
+    em o menu fixo ao rolar para baixo, pra outras secões*/
+}
+/* estilo da nossa logo*/
+.navigation .logo{
+    color: var(--red);
+    font-size: 1.7rem;
+    font-weight: 600;
+}
+.navigation .logo span{
+    color: var(--dark);
+}
+/*Nossa ul e seus li*/
+.navigation ul{
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+}
+.navigation ul li{
+    color: var(--dark);
+    font-size: 17px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+.nav-menu.nav-item a:hover{
+    background-color: #d63a25;
+}
+/*Formatação do icon*/
+.navigation ion-icon{
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+/*Nosso Menu*/
+.menu{
+    cursor: pointer;
+    display: none;
+}
+.menu .bar{ /*estilo do menu*/
+    display: block;
+    width: 28px;
+    height: 3px;
+    border-radius: 3px;
+    background: var(--dark);
+    margin: 5px auto;
+    transform: all 0.3s;
+    cursor: pointer;
+}
+.menu .bar:nth-child(1),
+.menu .bar:nth-child(3){/*Estamos a pegar a primeira barra e a terceira barra do menu que são os spans*/
+    background: var(--red);
+
+}
+/*Nosso home ou a parte da descrição*/
+.home{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 40px;
+}
+.home-text{
+   max-width: 37rem;
+}
+.home-text .text-h4{
+    font-size: 1.5rem;
+    color: var(--red);
+    margin-bottom: 10px;
+}
+.home-text .text-h1{
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+.home-text p{
+    margin-bottom: 4rem;
+}
+.home-btn{
+    padding: 15px 45px;
+    background: var(--red);
+    color: var(--white);
+    border-radius: 10px;
+    font-weight: 700;
+    transition: all 0.5s;
+    box-shadow: 5px 3px #1e1c2a;
+}
+.home-btn:hover{
+    background: #fc4c35;
+}
+.home-img img{
+    width: 100%;
+}
+/*Parte responsiva, tornar a página responsiva*/
+@media (max-width: 785px) {
+    .navigation{
+        padding: 18px 20px;
+    }
+    .menu{
+        display: block;
+    }
+    .menu.activo .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .menu.activo .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .menu.activo .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+        background-color: var(--dark);  
+    }
+    .nav-menu{
+         /*Faz com que o menu as li desapareçam quando a tela estiver abaixo dos 785px*/
+        position: fixed;
+        right: -100%;
+        top: 70px;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        background: var(--white);
+        gap: -10px;
+        transition: 0.3s;
+    }
+    .nav-menu.activo{
+        right: 0;
+    }
+    .nav-item{
+        margin: 16px 0px;
+    }
+    /*Nosso main*/
+    .home{
+        padding: 100px 2%;
+        flex-direction: column;
+        text-align: center;
+        overflow: hidden;
+        gap: 5rem;
+    }
+    .home .text-h4{
+        font-size: 15px;
+    }
+    .home .text-h1{
+        font: 2.5rem;
+        line-height: 3rem;
+    }
+    .home p {
+        font-size: 15px;
+    }
+    .home-img{
+        width: 125%;
+    }
+}
